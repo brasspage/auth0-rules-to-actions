@@ -1,0 +1,9 @@
+{
+  "name": "auth0-rules-to-actions",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "node --test --test-concurrency=1 actions.test.js"
+  }
+}
