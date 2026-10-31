@@ -1,6 +1,6 @@
 # Auth0 Rules to Actions: two worked ports with a test harness
 
-Auth0 says Rules and Hooks stop running and are removed after November 18, 2026 ([Auth0 docs](https://auth0.com/docs/troubleshoot/product-lifecycle/deprecations-and-migrations)). This repo ports two public Rules from [auth0/rules](https://github.com/auth0/rules) to post-login Actions, and tests them with a fake `event` and `api`, so you can check a port before you deploy it.
+Auth0 says Hooks stop running and are removed after April 30, 2027, and Rules after January 31, 2028 ([Auth0 docs](https://auth0.com/docs/troubleshoot/product-lifecycle/deprecations-and-migrations), read October 30, 2026). On October 27 the same page still said November 18, 2026, the date this README first gave. This repo ports two public Rules from [auth0/rules](https://github.com/auth0/rules) to post-login Actions, and tests them with a fake `event` and `api`, so you can check a port before you deploy it.
 
 - `add-persistence-attribute.action.js`: sets `user_metadata.color` and adds it to the ID token. It now saves only when the value changes.
 - `slack.action.js`: posts "New User: ..." to a Slack webhook on a first login. The URL is now the Action's own secret, the npm package gives way to `fetch`, and the post is awaited with a 3 second timeout, because an Action may stop as soon as it returns. A Slack failure never blocks the login.
